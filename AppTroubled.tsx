@@ -8,7 +8,7 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, { useState, ReactNode } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -28,26 +28,40 @@ import {
 
 // declare const global: {HermesInternal: null | {}};
 
-// NOT WORKING
-
-export default function App() {
-  return [Text, 'TTTTT'];
-}
-
-// NOT WORKING
-// const App = () => {
-//   return [
-//     [StatusBar, {barStyle: 'dark-content'}],
-//     [
-//       SafeAreaView,
+// WORKING
+// export default class App extends React.PureComponent {
+//   render() {
+//     return [
+//       [StatusBar, {barStyle: 'dark-content'}],
 //       [
-//         ScrollView,
-//         {contentInsetAdjustmentBehavior: 'automatic', style: styles.scrollView},
-//         [Text, {style: styles.sectionTitle}, 'Step One'],
+//         SafeAreaView,
+//         [
+//           ScrollView,
+//           {
+//             contentInsetAdjustmentBehavior: 'automatic',
+//             style: styles.scrollView,
+//           },
+//           [Text, {style: styles.sectionTitle}, 'Step One'],
+//         ],
 //       ],
-//     ],
-//   ];
-// };
+//     ];
+//   }
+// }
+
+// NOT WORKING
+export default function App() {
+  return [
+    [StatusBar, { barStyle: 'dark-content' }],
+    [
+      SafeAreaView,
+      [
+        ScrollView,
+        { contentInsetAdjustmentBehavior: 'automatic', style: styles.scrollView },
+        [Text, { style: styles.sectionTitle }, 'Step One'],
+      ],
+    ],
+  ];
+}
 
 // <>
 //   <StatusBar barStyle="dark-content" />
